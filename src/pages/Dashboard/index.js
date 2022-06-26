@@ -24,8 +24,6 @@ const Dashboard = () => {
         <Item>1</Item>
         <Item>2</Item>
       </Stack>
-
-      <p>Hello</p>
     </Box>
   );
 };
