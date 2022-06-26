@@ -25,6 +25,7 @@ const Dashboard = () => {
         <Item>2</Item>
         <Item>3</Item>
         <Item>4</Item>
+        <Item>5</Item>
       </Stack>
     </Box>
   );
