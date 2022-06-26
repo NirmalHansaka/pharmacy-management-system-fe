@@ -23,6 +23,7 @@ const Dashboard = () => {
       >
         <Item>1</Item>
         <Item>2</Item>
+        <Item>3</Item>
       </Stack>
     </Box>
   );
