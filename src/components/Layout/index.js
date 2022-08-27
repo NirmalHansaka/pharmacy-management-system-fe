@@ -18,6 +18,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import ROUTE from "../../routes/config";
 import { Link } from "react-router-dom";
+import { Avatar } from "@mui/material";
+import HeaderMenu from "../HeaderMenu";
+
 
 const drawerWidth = 240;
 
@@ -83,7 +86,7 @@ function Layout(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div"></Typography>
+          <HeaderMenu />
         </Toolbar>
       </AppBar>
       <Box
