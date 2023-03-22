@@ -29,23 +29,6 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
-const heads = [
-  "id",
-  "name",
-  "Group Name",
-  "miligrames",
-  "type",
-  "stock Amount",
-];
-const buttons = [
-  <Button key="one" color="error">
-    Delete
-  </Button>,
-  <Button key="two" sx={{ backgroundColor: "#0288d1" }}>
-    Update
-  </Button>,
-];
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -115,7 +98,7 @@ const TableHeaderSection = ({ tableHeaders }) => {
 //   );
 // };
 
-const TableComponent = ({ tableData, tableHeaders }) => {
+const TableComponent = ({ tableData, tableHeaders, deleteHandler }) => {
   // const { tableData, tableHeaders } = props;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(20);
@@ -127,6 +110,15 @@ const TableComponent = ({ tableData, tableHeaders }) => {
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
+
+  // const buttons = [
+  //   <Button key="one" color="error" onClick={deleteHandler}>
+  //     Delete
+  //   </Button>,
+  //   <Button key="two" sx={{ backgroundColor: "#0288d1" }}>
+  //     Update
+  //   </Button>,
+  // ];
 
   return (
     <Box>
@@ -171,12 +163,12 @@ const TableComponent = ({ tableData, tableHeaders }) => {
               tableHeaders={tableHeaders}
               order={order}
               orderBy={orderBy}
-              onRequestSort={sortReuestHandler}
+              // onRequestSort={sortReuestHandler}
             />
             <TableBody>
               {tableData
-                .sort(getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                // .sort(getComparator(order, orderBy))
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   // const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
@@ -200,7 +192,23 @@ const TableComponent = ({ tableData, tableHeaders }) => {
                           size="small"
                           aria-label="small button group"
                         >
-                          {buttons}
+                          {[
+                            <Button
+                              key="one"
+                              color="error"
+                              onClick={(e) =>
+                                deleteHandler(row[tableHeaders[0]], e)
+                              }
+                            >
+                              Delete
+                            </Button>,
+                            <Button
+                              key="two"
+                              sx={{ backgroundColor: "#0288d1" }}
+                            >
+                              Update
+                            </Button>,
+                          ]}
                         </ButtonGroup>
                       </TableCell>
                     </TableRow>

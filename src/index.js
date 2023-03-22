@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import axios from "axios";
+// import axios from "axios";
 
-axios.interceptors.request.use((request) => {
-  console.log(request);
-});
+// axios.interceptors.request.use((request) => {
+//   console.log(request);
+// });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

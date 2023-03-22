@@ -1,15 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-
 import Paper from "@mui/material/Paper";
-import TableComponent from "../../../components/TableComponent";
-import { MEDICINEDATA, medicineTitle } from "../../../Data/medicineData";
+import TableComponent from "../../components/TableComponent";
+import { MEDICINEDATA, medicineTitle } from "../../Data/medicineData";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import AddIcon from "@mui/icons-material/Add";
 
 const style = {
   position: "absolute",
@@ -45,14 +43,14 @@ function BasicModal() {
               variant="h6"
               component="h2"
             >
-              ADD A MEDICINE
+              ADD AN USER
             </Typography>
             <TextField
               sx={{
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Medicine Name"
+              label="User Name"
               variant="standard"
             />
 
@@ -63,7 +61,7 @@ function BasicModal() {
               id="standard-basic"
               label="Unit Price"
               variant="standard"
-              type="number"
+              type="password"
             />
 
             <TextField
@@ -104,8 +102,7 @@ function BasicModal() {
     </div>
   );
 }
-
-const Medicine = () => {
+const Users = () => {
   return (
     <>
       <BasicModal></BasicModal>
@@ -119,4 +116,4 @@ const Medicine = () => {
   );
 };
 
-export default Medicine;
+export default Users;
