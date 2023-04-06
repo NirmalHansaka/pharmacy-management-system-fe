@@ -1,4 +1,4 @@
-const MEDICINE = [
+export const MEDICINEDATA = [
   {
     id: "AM250",
     name: "Amoxicillin",
@@ -96,7 +96,7 @@ const MEDICINE = [
     stockAmount: 500,
   },
   {
-    id: "AZ500",
+    id: "RA500",
     name: "Ranitidine",
     GroupName: "Generic",
     miligrames: 600,
@@ -112,10 +112,10 @@ const MEDICINE = [
     stockAmount: 200,
   },
   {
-    id: "ER500",
+    id: "PE500",
     name: "Penicillin",
     GroupName: "Generic",
-    miligrames: 200,
+    miligrames: 1000,
     type: "Tablet",
     stockAmount: 1200,
   },
@@ -129,4 +129,11 @@ const MEDICINE = [
   },
 ];
 
-export default MEDICINE;
+export const medicineTitle = [
+  "id",
+  "name",
+  "GroupName",
+  "miligrames",
+  "type",
+  "stockAmount",
+];

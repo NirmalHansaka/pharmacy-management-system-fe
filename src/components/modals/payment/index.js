@@ -1,15 +1,11 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-
 import Paper from "@mui/material/Paper";
-import TableComponent from "../../../components/TableComponent";
-import { MEDICINEDATA, medicineTitle } from "../../../Data/medicineData";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import AddIcon from "@mui/icons-material/Add";
 
 const style = {
   position: "absolute",
@@ -45,15 +41,15 @@ function BasicModal() {
               variant="h6"
               component="h2"
             >
-              ADD A MEDICINE
+              PAYMENT
             </Typography>
             <TextField
               sx={{
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Medicine Name"
-              variant="standard"
+              label="Payment Amount"
+              variant="number"
             />
 
             <TextField
@@ -61,9 +57,8 @@ function BasicModal() {
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Unit Price"
-              variant="standard"
-              type="number"
+              label="Discount"
+              variant="number"
             />
 
             <TextField
@@ -71,9 +66,8 @@ function BasicModal() {
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Quntity"
-              variant="standard"
-              type="number"
+              label="Total Amount"
+              variant="number"
             />
 
             <TextField
@@ -81,9 +75,11 @@ function BasicModal() {
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Company ID"
-              variant="standard"
+              label="Payment Method ID"
+              variant="number"
             />
+
+            
           </Stack>
           <Stack
             sx={{ my: 4, mr: 8.5 }}
@@ -105,18 +101,3 @@ function BasicModal() {
   );
 }
 
-const Medicine = () => {
-  return (
-    <>
-      <BasicModal></BasicModal>
-      <Paper>
-        <TableComponent
-          tableData={MEDICINEDATA}
-          tableHeaders={medicineTitle}
-        ></TableComponent>
-      </Paper>
-    </>
-  );
-};
-
-export default Medicine;
