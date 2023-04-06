@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import TableComponent from "../../components/TableComponent";
-import { MEDICINEDATA, medicineTitle } from "../../Data/medicineData";
+
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -23,19 +23,19 @@ const style = {
   p: 3,
 };
 
-function BasicModal() {
+function BasicModal({ getData }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const [roleData, setRoleData] = useState({ role_name: "" });
 
-  const inputHandler = (e) => {
-    //
-    setRoleData((prev) => {
-      return { ...prev, [e.target.id]: e.target.value };
-    });
-  };
+  // const inputHandler = (e) => {
+  //   //
+  //   setRoleData((prev) => {
+  //     return { ...prev, [e.target.id]: e.target.value };
+  //   });
+  // };
 
   const postHandler = (e) => {
     e.preventDefault();
@@ -43,6 +43,7 @@ function BasicModal() {
       .post("http://localhost:8000/addRole", { ...roleData })
       .then((res) => {
         // console.log(res.roleData);
+        getData();
       })
       .catch((err) => {
         console.log(err);
@@ -115,11 +116,15 @@ const Role = () => {
 
   const roleTitle = ["role_id", "role_name"];
 
-  useEffect(() => {
+  const getData = () => {
     axios.get("http://localhost:8000/getRole").then((data) => {
       console.log(data.data);
       setReceiveData(data.data);
     });
+  };
+
+  useEffect(() => {
+    getData();
   }, []);
 
   const deleteHandler = (id, e) => {
@@ -128,12 +133,7 @@ const Role = () => {
     axios
       .delete(`http://localhost:8000/deleteRole/${id}`)
       .then((data) => {
-        setReceiveData(
-          receiveData.filter((rd) => {
-            console.log(rd);
-            return rd.role_id !== id;
-          })
-        );
+        getData();
       })
       .catch((err) => {
         console.log(err);
@@ -142,13 +142,13 @@ const Role = () => {
 
   return (
     <>
-      <BasicModal></BasicModal>
+      <BasicModal getData={getData}></BasicModal>
       <Paper>
         <TableComponent
           tableData={receiveData}
           tableHeaders={roleTitle}
           deleteHandler={deleteHandler}
-        ></TableComponent>
+        />
       </Paper>
     </>
   );
