@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -19,7 +18,7 @@ const style = {
   p: 3,
 };
 
-function BasicModal() {
+function GenericsModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -41,43 +40,17 @@ function BasicModal() {
               variant="h6"
               component="h2"
             >
-              ORDER
+              GENERIC
             </Typography>
             <TextField
               sx={{
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Customer ID"
-              variant="number"
-            />
-
-            <TextField
-              sx={{
-                width: { sm: 200, md: 300 },
-              }}
-              id="standard-basic"
-              label="Order Date"
-              variant="standard" //number or ???              
-            />
-
-            <TextField
-              sx={{
-                width: { sm: 200, md: 300 },
-              }}
-              id="standard-basic"
-              label="Order Time"
+              label="Generic name"
               variant="standard"
             />
 
-            <TextField
-              sx={{
-                width: { sm: 200, md: 300 },
-              }}
-              id="standard-basic"
-              label="Payment ID"
-              variant="number" //number or ??? 
-            />
           </Stack>
           <Stack
             sx={{ my: 4, mr: 8.5 }}
@@ -98,4 +71,4 @@ function BasicModal() {
     </div>
   );
 }
-
+export default GenericsModal;

@@ -1,4 +1,4 @@
-import * as React from "react";
+import {React,useState} from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
@@ -19,8 +19,8 @@ const style = {
   p: 3,
 };
 
-function BasicModal() {
-  const [open, setOpen] = React.useState(false);
+function OrderModal() {
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -41,17 +41,43 @@ function BasicModal() {
               variant="h6"
               component="h2"
             >
-              GENERIC
+              ORDER
             </Typography>
             <TextField
               sx={{
                 width: { sm: 200, md: 300 },
               }}
               id="standard-basic"
-              label="Generic name"
+              label="Customer ID"
               variant="standard"
             />
 
+            <TextField
+              sx={{
+                width: { sm: 200, md: 300 },
+              }}
+              id="standard-basic"
+              label="Order Date"
+              variant="standard" //number or ???              
+            />
+
+            <TextField
+              sx={{
+                width: { sm: 200, md: 300 },
+              }}
+              id="standard-basic"
+              label="Order Time"
+              variant="standard"
+            />
+
+            <TextField
+              sx={{
+                width: { sm: 200, md: 300 },
+              }}
+              id="standard-basic"
+              label="Payment ID"
+              variant="standard" //number or ??? 
+            />
           </Stack>
           <Stack
             sx={{ my: 4, mr: 8.5 }}
@@ -72,3 +98,5 @@ function BasicModal() {
     </div>
   );
 }
+
+export default OrderModal;
