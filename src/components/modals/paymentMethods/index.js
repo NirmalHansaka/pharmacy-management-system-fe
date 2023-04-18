@@ -19,7 +19,7 @@ const style = {
   p: 3,
 };
 
-function BasicModal() {
+function PaymentMethods() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -73,4 +73,5 @@ function BasicModal() {
     </div>
   );
 }
+export default PaymentMethods;
 

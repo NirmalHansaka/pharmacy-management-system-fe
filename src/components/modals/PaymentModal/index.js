@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -19,7 +18,7 @@ const style = {
   p: 3,
 };
 
-function BasicModal() {
+function PaymentModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -49,7 +48,7 @@ function BasicModal() {
               }}
               id="standard-basic"
               label="Payment Amount"
-              variant="number"
+              variant="standard"
             />
 
             <TextField
@@ -58,7 +57,7 @@ function BasicModal() {
               }}
               id="standard-basic"
               label="Discount"
-              variant="number"
+              variant="standard"
             />
 
             <TextField
@@ -67,7 +66,7 @@ function BasicModal() {
               }}
               id="standard-basic"
               label="Total Amount"
-              variant="number"
+              variant="standard"
             />
 
             <TextField
@@ -76,7 +75,7 @@ function BasicModal() {
               }}
               id="standard-basic"
               label="Payment Method ID"
-              variant="number"
+              variant="standard"
             />
 
             
@@ -100,4 +99,6 @@ function BasicModal() {
     </div>
   );
 }
+
+export default PaymentModal;
 
